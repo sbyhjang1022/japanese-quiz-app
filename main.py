@@ -10,7 +10,7 @@ st.set_page_config(page_title="일본어 동사 퀴즈", layout="centered")
 WORDS = [
     ("買う", "かう", "사다"),
     ("行く", "いく", "가다"),
-    ("話す", "はなす", "이야기하다"),
+    ("話す", "はなす", "말하다"),
     ("あそぶ", "あそぶ", "놀다"),
     ("飲む", "のむ", "마시다"),
     ("すわる", "すわる", "앉다"),
@@ -48,8 +48,7 @@ def make_questions(word_list, n):
         qtype = random.choice(["meaning", "reading"])  # 두 가지 유형: 뜻 맞추기, 읽기 맞추기
         # Build options
         if qtype == "meaning":
-            prompt = f"다음 단어의 한국어 뜻은?
-{w[0]}"
+            prompt = "다음 단어의 한국어 뜻은?""
             correct = w[2]
             # choose 3 distractors
             distractors = [x[2] for x in WORDS if x[2] != correct]
@@ -234,4 +233,4 @@ if qidx >= len(questions):
 st.caption("정답을 선택하면 다음 문제가 자동으로 나옵니다.")
 
 # Footer cute reminder
-st.markdown("---\n즐겁게 복습하세요! 🌸 がんばってね！")
+st.markdown("---\n즐겁게 복습하세요! 🌸 学習がんばってね！")
